@@ -88,4 +88,23 @@ angular.module('sprints', ['resources.sprints', 'services.crud', 'tasks'])
   $scope.notSelected = function (productBacklogItem) {
     return $scope.sprint.sprintBacklog.indexOf(productBacklogItem.$id())===-1;
   };
+
+  angular.element(document).ready(function () {
+
+    var start = $("#datepickerStart");
+    start.datepicker({
+      onSelect: function(date) {
+        start.triggerHandler("input");
+      }
+    });
+
+    var end = $("#datepickerEnd");
+    end.datepicker({
+      onSelect: function(date) {
+        end.triggerHandler("input");
+      }
+    });
+
+  });
+  
 }]);
